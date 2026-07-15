@@ -1,12 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head><style id="qw-theme">:root {
+  --color-bg: #faf9fc;
+  --color-text: #131920;
+  --color-navbar-bg: #f9f9fb;
+  --color-bg-chat-view: #fcfcfd;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f9fafb;
+  --color-bg-hover: #f3f4f6;
+  --color-surface: #f9fafb;
+  --color-surface-hover: #f3f4f6;
+  --color-surface-active: #e5e7eb;
+  --color-border: rgba(0, 0, 0, .12);
+  --color-border-light: rgba(0, 0, 0, .06);
+  --color-border-strong: #d1d5db;
+  --color-primary: #4200db;
+  --color-primary-dark: #35009e;
+  --color-primary-light: #8575ff;
+  --color-primary-bg: #e8e6ff;
+  --color-primary-hover-border: #35009e;
+  --color-nav-icon-active: #4200db;
+  --color-nav-hover-border: #4200db;
+  --color-primary-alpha-3: color-mix(in srgb, #4200db 3%, transparent);
+  --color-primary-alpha-5: color-mix(in srgb, #4200db 5%, transparent);
+  --color-primary-alpha-8: color-mix(in srgb, #4200db 8%, transparent);
+  --color-primary-alpha-12: color-mix(in srgb, #4200db 12%, transparent);
+  --color-primary-alpha-15: color-mix(in srgb, #4200db 15%, transparent);
+  --color-primary-alpha-20: color-mix(in srgb, #4200db 20%, transparent);
+  --color-primary-alpha-25: color-mix(in srgb, #4200db 25%, transparent);
+  --color-primary-alpha-30: color-mix(in srgb, #4200db 30%, transparent);
+  --color-primary-alpha-40: color-mix(in srgb, #4200db 40%, transparent);
+  --color-primary-alpha-50: color-mix(in srgb, #4200db 50%, transparent);
+  --color-primary-alpha-60: color-mix(in srgb, #4200db 60%, transparent);
+  --color-primary-subtle: color-mix(in srgb, #4200db 12%, transparent);
+  --color-primary-border: color-mix(in srgb, #4200db 30%, transparent);
+  --color-focus-ring: color-mix(in srgb, #4200db 50%, transparent);
+  --color-sidebar-hover: color-mix(in srgb, #4200db 12%, transparent);
+  --color-accent: #4200db;
+  --color-accent-foreground: #4200db;
+  --color-accent-dark: #35009e;
+  --color-accent-light: #e8e6ff;
+  --color-accent-inverse: #ffffff;
+  --color-link: #4200db;
+  --color-primary-gradient-end: #e8e6ff;
+  --color-primary-bg-solid: #e8e6ff;
+  --color-user-bubble: #F3F3F7;
+  --color-user-bubble-text: #131920;
+  --color-text-secondary: #5e5e5e;
+  --color-text-tertiary: #656871;
+  --color-text-muted: #9ca3af;
+  --color-text-on-primary: #ffffff;
+  --color-success: #00802f;
+  --color-success-dark: #00471e;
+  --color-success-light: #d9ffd6;
+  --color-success-hover: #005c26;
+  --color-success-bg: #e6f5eb;
+  --color-success-border: #b3d9bf;
+  --color-success-foreground: #00802f;
+  --color-success-dark-foreground: #00471e;
+  --color-success-text: #00471e;
+  --color-error: #db0000;
+  --color-error-dark: #700000;
+  --color-error-light: #ffe0e0;
+  --color-error-hover: #ffe0e0;
+  --color-error-bg: #fceaea;
+  --color-error-border: #f2cccc;
+  --color-error-active-border: #db0000;
+  --color-error-foreground: #db0000;
+  --color-error-dark-foreground: #700000;
+  --color-error-inverse: #ffffff;
+  --color-error-text: #700000;
+  --color-warning: #f2b100;
+  --color-warning-dark: #573a00;
+  --color-warning-light: #fffbbd;
+  --color-warning-hover: #db9200;
+  --color-warning-bg: #fef7e6;
+  --color-warning-border: #f9dfa3;
+  --color-warning-foreground: #f2b100;
+  --color-warning-dark-foreground: #573a00;
+  --color-warning-inverse: #573a00;
+  --color-surface-warning: #fffbbd;
+  --color-text-warning: #573a00;
+  --color-info: #006ce0;
+  --color-info-dark: #002a66;
+  --color-info-light: #d1f1ff;
+  --color-info-hover: #003b8f;
+  --color-info-bg: #ebf3fc;
+  --color-info-border: #b3d1f0;
+  --color-info-foreground: #006ce0;
+  --color-info-dark-foreground: #002a66;
+  --color-info-inverse: #ffffff;
+  --color-overlay: rgba(0, 0, 0, .5);
+  --color-shadow: rgba(0, 0, 0, .08);
+  --color-hover: rgba(0, 0, 0, .05);
+  --color-tooltip-bg: rgba(0, 0, 0, .85);
+  --color-tooltip-text: #ffffff;
+  --color-voice-purple: #8575ff;
+  --color-voice-purple-dark: #4200db;
+  --color-voice-purple-light: #8575ff;
+  --color-voice-red: #db0000;
+  --color-voice-red-dark: #700000;
+  --color-voice-amber: #f2b100;
+  --color-voice-purple-glow: rgba(66, 0, 219, .4);
+  --color-voice-red-glow: rgba(219, 0, 0, .4);
+  --font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Menlo", "Consolas", monospace;
+  --text-2xs: .5625rem;
+  --text-xs: .625rem;
+  --text-sm: .6875rem;
+  --text-base: .75rem;
+  --text-md: .8125rem;
+  --text-lg: .875rem;
+  --text-xl: 1rem;
+  --text-2xl: 1.125rem;
+  --text-3xl: 1.25rem;
+  --text-4xl: 1.5rem;
+  --text-5xl: 2rem;
+  --spacing-1: calc(.25rem * 1);
+  --spacing-1-5: calc(.25rem * 1.5);
+  --spacing-2: calc(.25rem * 2);
+  --spacing-3: calc(.25rem * 3);
+  --spacing-4: calc(.25rem * 4);
+  --spacing-5: calc(.25rem * 5);
+  --spacing-6: calc(.25rem * 6);
+  --spacing-7: calc(.25rem * 7);
+  --spacing-8: calc(.25rem * 8);
+  --spacing-9: calc(.25rem * 9);
+  --spacing-10: calc(.25rem * 10);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-card: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 8px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, .08);
+  --color-success-bg-solid: #d9ffd6;
+  --color-error-bg-solid: #ffe0e0;
+  --color-error-border-solid: #ffe0e0;
+  --color-warning-bg-solid: #fffbbd;
+  --color-warning-text: #573a00;
+  --color-info-bg-solid: #d1f1ff;
+  --color-info-bg-solid-alt: #d1f1ff;
+  --color-info-text: #002a66;
+  --color-info-text-alt: #002a66;
+  --color-emerald: #10b981;
+  --color-teal: #4ecdc4;
+  --color-code-bg: #F3F3F7;
+  --color-code-header-bg: #f1f3f5;
+  --color-code-text: #24292e;
+  --color-code-border: #e1e4e8;
+  --color-code-muted: #6a737d;
+  --color-inline-code-bg: #F3F3F7;
+  --color-inline-code-text: #24292e;
+  --color-inline-code-border: #e1e4e8;
+  --color-scrollbar-thumb: #d1d5db;
+  --color-scrollbar-track: transparent;
+  --color-graph-node-text: #333333;
+  --color-graph-node-text-dim: #7F8C8D;
+  --color-graph-edge-default: #95A5A6;
+  --color-graph-edge-cross: #E67E22;
+  --color-graph-edge-text: #666666;
+  --color-graph-edge-stroke: #ffffff;
+  --color-graph-highlight-bg: #FF6B6B;
+  --color-graph-highlight-border: #E74C3C;
+  --color-graph-search-bg: #FFD700;
+  --color-graph-search-border: #FFA500;
+  --color-graph-focus-border: #C0392B;
+  --color-graph-external-border: #95A5A6;
+  --color-graph-cat-file: #3498DB;
+  --color-graph-cat-folder: #7F8C8D;
+  --color-graph-cat-file-aggregate: #2980B9;
+  --color-graph-cat-class: #9B59B6;
+  --color-graph-cat-function: #2ECC71;
+  --color-graph-cat-method: #1ABC9C;
+  --color-graph-cat-variable: #F39C12;
+  --color-graph-cat-import: #D35400;
+  --color-graph-cat-module: #5B6ABF;
+  --color-graph-cat-concept: #E74C3C;
+  --color-graph-cat-person: #FF6B6B;
+  --color-graph-cat-org: #4ECDC4;
+  --color-graph-cat-organization: #4ECDC4;
+  --color-graph-cat-product: #A29BFE;
+  --color-graph-cat-metric: #FD79A8;
+  --color-graph-cat-location: #34495E;
+  --color-graph-cat-date: #E056A0;
+  --color-graph-cat-code: #3498DB;
+  --color-graph-cat-doc: #7F8C8D;
+  --color-graph-cat-url: #00B894;
+  --color-graph-cat-email: #6C5CE7;
+  --color-graph-cat-unknown: #BDC3C7;
+  --color-graph-rel-contains: #BDC3C7;
+  --color-graph-rel-extends: #9B59B6;
+  --color-graph-rel-implements: #3498DB;
+  --color-graph-rel-imports: #E67E22;
+  --color-graph-rel-uses: #2ECC71;
+  --color-graph-rel-calls: #27AE60;
+  --color-graph-rel-references: #F39C12;
+  --color-graph-rel-related-to: #95A5A6;
+  --color-graph-rel-works-on: #E74C3C;
+  --color-graph-rel-owns: #1ABC9C;
+  --color-graph-rel-depends-on: #E67E22;
+  --color-graph-rel-parent-of: #BDC3C7;
+  --qs-content: #fff;
+  --qs-main: #fff;
+  --qs-primary-foreground: #131920;
+  --qs-secondary-foreground: #656871;
+  --qs-tertiary-foreground: #9ca3af;
+  --qs-placeholder-foreground: #8c8c94;
+  --qs-divider: #dedee3;
+  --qs-default-border: #8c8c94;
+  --qs-neutral-soft: #b4b4bb;
+  --qs-neutral-gray-50: #f9fafb;
+  --qs-tertiary-background: #f9fafb;
+  --qs-action-hover: #f3f3f7;
+  --qs-primary-default: #4200db;
+  --qs-primary-dark: #35009e;
+  --qs-primary-light: #e8e6ff;
+  --qs-success-default: #00802f;
+  --qs-error-default: #db0000;
+  --qs-font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  --qs-font-family: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  --qs-font-base-letter-spacing: .15px;
+  --qs-shadow-sm: 0 0 2px 0 #00000029, 0 0 4px 0 #00000029;
+  --qs-shadow-md: 0 0 2px 0 #00000029, 0 2px 8px 1px #00000029;
+  --qs-shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029;
+  --qs-shadow-xl: 0 4px 8px 2px #00000029, 0 6px 20px 4px #00000029;
+  --qs-width-modal-sm: 384px;
+  --qs-width-modal-md: 600px;
+  --qs-width-modal-lg: 1136px;
+  --qs-grid-gap: 16px;
+  --qs-grid-gap-xl: 24px;
+  --qs-primary-medium: #8575ff;
+  --qs-primary-inverse: #fff;
+  --qs-neutral-lightest: #f9f9fb;
+  --qs-neutral-light: #f3f3f7;
+  --qs-neutral-default: #dedee3;
+  --qs-neutral-medium: #8c8c94;
+  --qs-neutral-deep: #656871;
+  --qs-neutral-dark: #333843;
+  --qs-neutral-strong: #131920;
+  --qs-neutral-white: #fff;
+  --qs-neutral-black: #000;
+  --qs-success-medium: #005c26;
+  --qs-success-dark: #00471e;
+  --qs-success-light: #d9ffd6;
+  --qs-success-inverse: #fff;
+  --qs-info-default: #006ce0;
+  --qs-info-medium: #003b8f;
+  --qs-info-dark: #002a66;
+  --qs-info-light: #d1f1ff;
+  --qs-info-inverse: #fff;
+  --qs-warning-default: #f2b100;
+  --qs-warning-medium: #db9200;
+  --qs-warning-dark: #573a00;
+  --qs-warning-light: #fffbbd;
+  --qs-warning-inverse: #573a00;
+  --qs-warning-experimental: #f2b100;
+  --qs-warning-experimental-light: #fffbbd;
+  --qs-warning-experimental-light-foreground: #fffbbd;
+  --qs-error-medium: #900;
+  --qs-error-dark: #700000;
+  --qs-error-light: #ffe0e0;
+  --qs-error-inverse: #fff;
+  --qs-connection-default: #db3300;
+  --qs-connection-soft: #ff997a;
+  --qs-connection-light: #ffe0d6;
+  --qs-connection-dark: #661800;
+  --qs-automation-default: #b3008f;
+  --qs-automation-medium: #d600ba;
+  --qs-automation-soft: #ff94f1;
+  --qs-automation-light: #ffe0fb;
+  --qs-automation-dark: #660052;
+  --qs-insight-default: #a000b8;
+  --qs-insight-soft: #f299ff;
+  --qs-insight-light: #fce6ff;
+  --qs-insight-dark: #590066;
+  --qs-visualization-default: #7300e5;
+  --qs-visualization-soft: #d4a8ff;
+  --qs-visualization-light: #f2e5ff;
+  --qs-visualization-dark: #45008a;
+  --qs-spice: #ff9800;
+  --qs-coachmark: #006ce0;
+  --qs-brand: #fff;
+  --qs-brand-foreground: #131920;
+  --qs-brand-navbar: #131920;
+  --qs-brand-navbar-foreground: #fff;
+  --qs-brand-navbar-light: #dedee3;
+  --qs-brand-navbar-dark: #000;
+  --qs-application-navbar: #4200db;
+  --qs-application-navbar-foreground: #fff;
+  --qs-application-navbar-light: #e8e6ff;
+  --qs-application-navbar-dark: #35009e;
+  --qs-dimension: #4200db;
+  --qs-dimension-foreground: #fff;
+  --qs-dimension-experimental: #4200db;
+  --qs-dimension-experimental-foreground: #4200db;
+  --qs-measure: #00802f;
+  --qs-measure-foreground: #fff;
+  --qs-measure-experimental: #f2b100;
+  --qs-measure-experimental-foreground: #f2b100;
+  --qs-content-inverse: #333843;
+  --qs-content-inverse-active: #131920;
+  --qs-secondary: #dedee3;
+  --qs-disabled: #8c8c94;
+  --qs-divider-light: #f3f3f7;
+  --qs-hover-border: #333843;
+  --qs-active-border: #4200db;
+  --qs-disabled-border: #dedee3;
+  --qs-error-border: #ffe0e0;
+  --qs-error-active-border: #db0000;
+  --qs-disabled-foreground: #b4b4bb;
+  --qs-primary-inverse-foreground: #fff;
+  --qs-error-foreground: #db0000;
+  --qs-contrast-foreground: #131920;
+  --qs-main-foreground: #131920;
+  --qs-main-secondary-foreground: #656871;
+  --qs-action-disabled: #f3f3f7;
+  --qs-action-active: #e8e6ff;
+  --qs-default-badge: #dedee3;
+  --qs-tag-default: #dedee3;
+  --qs-tag-soft-border: #b4b4bb;
+  --qs-focus-offset: 1px;
+  --qs-toggle-tile-sm: calc(.25rem * 8);
+  --qs-toggle-tile-md: calc(.25rem * 12);
+  --qs-toggle-tile-lg: calc(.25rem * 15);
+  --qs-shadow-pin-right: inset 4px 0 4px -4px #00000029;
+  --qs-shadow-pin-left: inset -4px 0 4px -4px #00000029;
+  --react-pdf-text-layer: 1;
+  --highlight-bg-color: rgba(180, 0, 170, 1);
+  --highlight-selected-bg-color: rgba(0, 100, 0, 1);
+  --react-pdf-annotation-layer: 1;
+  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
+  --input-focus-border-color: Highlight;
+  --input-focus-outline: 1px solid Canvas;
+  --input-unfocused-border-color: transparent;
+  --input-disabled-border-color: transparent;
+  --input-hover-border-color: black;
+  --link-outline: none;
+  color-scheme: light;
+}
+body { background: var(--color-bg); color: var(--color-text); }
+a { color: var(--color-link, var(--color-primary)); }</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#24201A">
 <title>Hanoi · Warmest Welcome</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -104,10 +443,11 @@ body {
   font-weight: 800;
   line-height: 0.88;
   letter-spacing: -0.04em;
+  white-space: nowrap;
   margin-bottom: 24px;
 }
 .hero-sub {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--white-80);
   line-height: 1.7;
@@ -147,7 +487,7 @@ body {
 }
 .big-text h2 {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(38px, 10vw, 72px);
+  font-size: clamp(32px, 8vw, 56px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -206,7 +546,7 @@ body {
 }
 .gallery-item .overlay h3 {
   font-family: 'Syne', sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 8px;
@@ -214,7 +554,7 @@ body {
   word-wrap: break-word;
 }
 .gallery-item .overlay span {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--white-50);
   font-weight: 400;
   line-height: 1.4;
@@ -256,7 +596,7 @@ body {
   margin-bottom: 20px;
 }
 .text-section p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--white-80);
   line-height: 1.8;
   margin-bottom: 12px;
@@ -364,14 +704,14 @@ body {
   pointer-events: auto;
 }
 .gallery-item .desc-tooltip p {
-  font-size: 11px;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.55;
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
   margin-bottom: 8px;
 }
 .gallery-item .desc-tooltip p:last-child { margin-bottom: 0; }
 .gallery-item .desc-tooltip .lang {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--cream);
   letter-spacing: 0.1em;
@@ -391,7 +731,7 @@ body {
 .surv-item:last-child { border-bottom: none; }
 .surv-label {
   font-family: 'Syne', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -400,7 +740,7 @@ body {
   margin-bottom: 6px;
 }
 .surv-item p {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--white-80);
   line-height: 1.7;
   margin: 0;
@@ -436,6 +776,7 @@ body {
     <a href="#experiences">Explore</a>
     <a href="#food">Eat</a>
     <a href="#coffee">Coffee</a>
+    <a href="#rooftops">City Views</a>
   </div>
 </nav>
 
@@ -445,7 +786,7 @@ body {
     <img src="Hanoi.png" alt="Hanoi">
   </div>
   <div class="hero-content">
-    <h1 class="hero-title">Ha Noi</h1>
+    <h1 class="hero-title">HA NOI</h1>
     <p class="hero-sub">A curated welcome to the capital. Where thousand-year stories meet the hum of a million motorbikes.</p>
     <a class="hero-cta" href="#survival">Wander in <span class="arrow"></span></a>
   </div>
@@ -467,19 +808,19 @@ body {
 <div class="text-section survival-list reveal" id="survival-content">
   <div class="surv-item">
     <span class="surv-label">01 · Office</span>
-    <p><strong>The Grand Terra, 36 Cat Linh</strong> — 7th floor. QR at elevator. <a href="https://www.google.com/maps/search/?api=1&query=The+Grand+Terra+36+Cat+Linh+Dong+Da+Hanoi" target="_blank" style="color:var(--cream); text-decoration:none;">Map ↗</a></p>
+    <p><strong>The Grand Terra, 36 Cat Linh</strong> — 7th floor. QR at elevator. <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Grand+Terra+36+Cat+Linh+Dong+Da+Hanoi" target="_blank" style="color:var(--cream); text-decoration:none;">Map ↗</a></p>
   </div>
   <div class="surv-item">
     <span class="surv-label">02 · Traffic</span>
-    <p>Cross slowly — <em>never stop halfway</em>. Use <strong>Grab / Be / XanhSM</strong>. Avoid 7–9 AM & 5–7 PM. Old Quarter best on foot.</p>
+    <p>Cross slowly — <em>never stop halfway</em>. Use <strong>Grab / Be / XanhSM</strong>. Avoid 7–9 AM &amp; 5–7 PM. Old Quarter best on foot.</p>
   </div>
   <div class="surv-item">
     <span class="surv-label">03 · Belongings</span>
-    <p>Front pockets in Old Quarter & Ta Hien. No valuables on cyclos. Hotel safe for passports; carry a photocopy.</p>
+    <p>Front pockets in Old Quarter &amp; Ta Hien. No valuables on cyclos. Hotel safe for passports; carry a photocopy.</p>
   </div>
   <div class="surv-item">
     <span class="surv-label">04 · Cash</span>
-    <p>QR pay at cafes & malls. Apple Pay at chains. Street vendors prefer cash — carry <strong>10K–100K VND</strong> notes.</p>
+    <p>QR pay at cafes &amp; malls. Apple Pay at chains. Street vendors prefer cash — carry <strong>10K–100K VND</strong> notes.</p>
   </div>
   <div class="surv-item">
     <span class="surv-label">05 · Weather</span>
@@ -492,43 +833,40 @@ body {
 </div>
 
 <!-- ═══ EXPERIENCES ═══ -->
-<div class="text-section reveal" id="experiences">
-  <span class="label">Experiences</span>
-  <h2>Sightseeing</h2>
+<div class="big-text reveal" id="experiences">
+  <h2>EXPLORE</h2>
   <p>Rise before the sun. Walk slowly around Hoan Kiem Lake — locally called <em>Guom Lake, the Lake of the Returned Sword</em> — as mist lifts and willows whisper. Then a hidden café, a cup of <em>cà phê trứng</em>, and a steaming bowl of <em>phở</em>. That's how Hanoi wakes.</p>
-  <p>If the weekend finds you still here, wander through a thousand years of Hanoi — old temples, imperial gates, hidden pagodas — then lose yourself in the Old Quarter's 36 Streets.</p>
-  <p>Or trade the city for quiet: escape to Tam Coc, Ninh Binh — the river valley from <em>Kong: Skull Island</em>.</p>
 </div>
 
 <div class="gallery">
   <div class="gallery-label">Places to Visit</div>
   <div class="gallery-track">
-    <div class="gallery-item"><img src="Hoan Kiem Lake & Ngoc Son Temple.jfif" alt="Hoan Kiem Lake"><div class="overlay"><h3>Hoan Kiem Lake & Ngoc Son Temple</h3><span>Dinh Tien Hoang St · 2.5 km · 10 min</span><a href="https://www.google.com/maps/search/?api=1&query=Hoan+Kiem+Lake+Ngoc+Son+Temple+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>The city's iconic lake with the red Huc Bridge leading to a temple on a small island. Best at sunrise.</p><span class="lang">中文</span><p>河内标志性的湖泊，红色的栖旭桥通向小岛上的玉山寺。日出时最美。</p><span class="lang">日本語</span><p>赤いフック橋が小島の寺院へと続く、ハノイの象徴的な湖。日の出が最高。</p></div></div>
-    <div class="gallery-item"><img src="Temple of Literature.jfif" alt="Temple of Literature"><div class="overlay"><h3>Temple of Literature</h3><span>58 Quoc Tu Giam · Vietnam's first university (1076) · 0.8 km</span><a href="https://www.google.com/maps/search/?api=1&query=Temple+of+Literature+58+Quoc+Tu+Giam+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Vietnam's first university (1076). Serene courtyards, ancient stelae, and centuries of scholarly heritage.</p><span class="lang">中文</span><p>越南第一所大学（1076年）。宁静的庭院、古老的石碑和数百年的学术遗产。</p><span class="lang">日本語</span><p>ベトナム初の大学（1076年）。静寂な中庭、古代の石碑、数世紀の学問の遺産。</p></div></div>
-    <div class="gallery-item"><img src="Imperial Citadel of Thang Long.jfif" alt="Imperial Citadel"><div class="overlay"><h3>Imperial Citadel of Thang Long</h3><span>19C Hoang Dieu · UNESCO World Heritage · 1.5 km</span><a href="https://www.google.com/maps/search/?api=1&query=Imperial+Citadel+Thang+Long+19C+Hoang+Dieu+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>UNESCO World Heritage Site. 1,000 years of Vietnamese imperial history in one complex.</p><span class="lang">中文</span><p>联合国教科文组织世界遗产。千年越南皇城历史汇聚于此。</p><span class="lang">日本語</span><p>ユネスコ世界遺産。1000年のベトナム帝国の歴史が凝縮された場所。</p></div></div>
-    <div class="gallery-item"><img src="Ho Chi Minh Mausoleum.jfif" alt="Ho Chi Minh Mausoleum"><div class="overlay"><h3>Ho Chi Minh Mausoleum</h3><span>Ba Dinh Square · Open 7:30–10:30 AM · 2.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=Ho+Chi+Minh+Mausoleum+Ba+Dinh+Square+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>The final resting place of Ho Chi Minh. Open mornings only. Dress respectfully — no shorts.</p><span class="lang">中文</span><p>胡志明主席的安息之地。仅上午开放。请着装得体，不可穿短裤。</p><span class="lang">日本語</span><p>ホーチミン主席の眠る場所。午前のみ開放。服装は敬意を持って — 短パン不可。</p></div></div>
-    <div class="gallery-item"><img src="Old Quarter (36 Streets).jfif" alt="Old Quarter"><div class="overlay"><h3>Old Quarter (36 Streets)</h3><span>Hoan Kiem · Each street sold one trade · 2.5 km</span><a href="https://www.google.com/maps/search/?api=1&query=Hanoi+Old+Quarter+36+Streets" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Each street specialized in one trade — silk, silver, paper. A sensory overload of sounds, smells, and street life.</p><span class="lang">中文</span><p>每条街专营一种行业——丝绸、银器、纸张。声音、气味和街头生活的感官盛宴。</p><span class="lang">日本語</span><p>各通りが一つの商売に特化 — 絹、銀、紙。音、香り、路上生活の感覚の洪水。</p></div></div>
-    <div class="gallery-item"><img src="St-Josephs-Cathedral.jpg" alt="St. Joseph's Cathedral"><div class="overlay"><h3>St. Joseph's Cathedral</h3><span>40 Nha Chung · Neo-gothic (1886) · 2.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=St+Josephs+Cathedral+40+Nha+Chung+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Neo-gothic cathedral built in 1886. The square in front is Hanoi's best people-watching spot at night.</p><span class="lang">中文</span><p>建于1886年的新哥特式大教堂。前面的广场是晚上观察路人的最佳地点。</p><span class="lang">日本語</span><p>1886年建造のネオゴシック大聖堂。前の広場は夜の人間観察に最適。</p></div></div>
+    <div class="gallery-item"><img src="Hoan Kiem Lake &amp; Ngoc Son Temple.jfif" alt="Hoan Kiem Lake"><div class="overlay"><h3>Hoan Kiem Lake &amp; Ngoc Son Temple</h3><span>Dinh Tien Hoang St · 2.5 km · 10 min</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Hoan+Kiem+Lake+Ngoc+Son+Temple+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>The city's iconic lake with the red Huc Bridge leading to a temple on a small island. Best at sunrise.</p><span class="lang">中文</span><p>河内标志性的湖泊，红色的栖旭桥通向小岛上的玉山寺。日出时最美。</p><span class="lang">日本語</span><p>赤いフック橋が小島の寺院へと続く、ハノイの象徴的な湖。日の出が最高。</p></div></div>
+    <div class="gallery-item"><img src="Temple of Literature.jfif" alt="Temple of Literature"><div class="overlay"><h3>Temple of Literature</h3><span>58 Quoc Tu Giam · Vietnam's first university (1076) · 0.8 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Temple+of+Literature+58+Quoc+Tu+Giam+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Vietnam's first university (1076). Serene courtyards, ancient stelae, and centuries of scholarly heritage.</p><span class="lang">中文</span><p>越南第一所大学（1076年）。宁静的庭院、古老的石碑和数百年的学术遗产。</p><span class="lang">日本語</span><p>ベトナム初の大学（1076年）。静寂な中庭、古代の石碑、数世紀の学問の遺産。</p></div></div>
+    <div class="gallery-item"><img src="Imperial Citadel of Thang Long.jfif" alt="Imperial Citadel"><div class="overlay"><h3>Imperial Citadel of Thang Long</h3><span>19C Hoang Dieu · UNESCO World Heritage · 1.5 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Imperial+Citadel+Thang+Long+19C+Hoang+Dieu+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>UNESCO World Heritage Site. 1,000 years of Vietnamese imperial history in one complex.</p><span class="lang">中文</span><p>联合国教科文组织世界遗产。千年越南皇城历史汇聚于此。</p><span class="lang">日本語</span><p>ユネスコ世界遺産。1000年のベトナム帝国の歴史が凝縮された場所。</p></div></div>
+    <div class="gallery-item"><img src="Ho Chi Minh Mausoleum.jfif" alt="Ho Chi Minh Mausoleum"><div class="overlay"><h3>Ho Chi Minh Mausoleum</h3><span>Ba Dinh Square · Open 7:30–10:30 AM · 2.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Ho+Chi+Minh+Mausoleum+Ba+Dinh+Square+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>The final resting place of Ho Chi Minh. Open mornings only. Dress respectfully — no shorts.</p><span class="lang">中文</span><p>胡志明主席的安息之地。仅上午开放。请着装得体，不可穿短裤。</p><span class="lang">日本語</span><p>ホーチミン主席の眠る場所。午前のみ開放。服装は敬意を持って — 短パン不可。</p></div></div>
+    <div class="gallery-item"><img src="Old Quarter (36 Streets).jfif" alt="Old Quarter"><div class="overlay"><h3>Old Quarter (36 Streets)</h3><span>Hoan Kiem · Each street sold one trade · 2.5 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Hanoi+Old+Quarter+36+Streets" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Each street specialized in one trade — silk, silver, paper. A sensory overload of sounds, smells, and street life.</p><span class="lang">中文</span><p>每条街专营一种行业——丝绸、银器、纸张。声音、气味和街头生活的感官盛宴。</p><span class="lang">日本語</span><p>各通りが一つの商売に特化 — 絹、銀、紙。音、香り、路上生活の感覚の洪水。</p></div></div>
+    <div class="gallery-item"><img src="St-Josephs-Cathedral.jpg" alt="St. Joseph's Cathedral"><div class="overlay"><h3>St. Joseph's Cathedral</h3><span>40 Nha Chung · Neo-gothic (1886) · 2.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=St+Josephs+Cathedral+40+Nha+Chung+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Neo-gothic cathedral built in 1886. The square in front is Hanoi's best people-watching spot at night.</p><span class="lang">中文</span><p>建于1886年的新哥特式大教堂。前面的广场是晚上观察路人的最佳地点。</p><span class="lang">日本語</span><p>1886年建造のネオゴシック大聖堂。前の広場は夜の人間観察に最適。</p></div></div>
   </div>
 </div>
 
 <div class="gallery">
   <div class="gallery-label">Activities</div>
   <div class="gallery-track">
-    <div class="gallery-item"><img src="Thang Long Water Puppet Show.jfif" alt="Water Puppets"><div class="overlay"><h3>Thang Long Water Puppet Show</h3><span>57B Dinh Tien Hoang · Shows 3:30, 5, 6:30, 8 PM · 2.5 km</span><a href="https://www.google.com/maps/search/?api=1&query=Thang+Long+Water+Puppet+Theatre+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A 1,000-year-old Vietnamese art form. Puppets dance on water to live traditional music.</p><span class="lang">中文</span><p>千年越南艺术形式。木偶在水上随传统音乐翩翩起舞。</p><span class="lang">日本語</span><p>1000年の歴史を持つベトナムの芸術。人形が伝統音楽に合わせて水上で踊る。</p></div></div>
-    <div class="gallery-item"><img src="Cyclo Tour of the Old Quarter.jfif" alt="Cyclo Tour"><div class="overlay"><h3>Cyclo Tour of the Old Quarter</h3><span>Depart Hoan Kiem · 1 hour, best at dusk · 100–200k VND</span><a href="https://www.google.com/maps/search/?api=1&query=Hoan+Kiem+Lake+Cyclo+Tours+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A leisurely ride through narrow streets at dusk. Negotiate the price before hopping on.</p><span class="lang">中文</span><p>黄昏时分悠闲穿行于狭窄街道。上车前先谈好价格。</p><span class="lang">日本語</span><p>夕暮れ時に狭い路地をのんびり走る。乗る前に価格交渉を。</p></div></div>
-    <div class="gallery-item"><img src="Bat Trang Ceramic Village.jfif" alt="Bat Trang"><div class="overlay"><h3>Bat Trang Ceramic Village</h3><span>Gia Lam · Try the pottery wheel · 15 km, ~40 min</span><a href="https://www.google.com/maps/search/?api=1&query=Bat+Trang+Ceramic+Village+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A 700-year-old pottery village. Try the wheel yourself and bring home handmade ceramics.</p><span class="lang">中文</span><p>拥有700年历史的陶瓷村。亲手体验陶艺轮，带走手工陶瓷。</p><span class="lang">日本語</span><p>700年の歴史を持つ陶芸村。ろくろ体験をして手作り陶器をお土産に。</p></div></div>
-    <div class="gallery-item"><img src="Tam Coc, Ninh Binh.jfif" alt="Tam Coc"><div class="overlay"><h3>Tam Coc, Ninh Binh</h3><span>95 km south · Boat through limestone karsts · Full day trip</span><a href="https://www.google.com/maps/search/?api=1&query=Tam+Coc+Ninh+Binh+Vietnam" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Drift by boat through limestone karsts and emerald waters. The 'Ha Long Bay on land.' Full day trip.</p><span class="lang">中文</span><p>乘船穿越石灰岩溶洞和翡翠般的水域。被称为'陆地下龙湾'。需一整天。</p><span class="lang">日本語</span><p>石灰岩の奇岩とエメラルドの水の中をボートで進む。'陸のハロン湾'。終日旅行。</p></div></div>
+    <div class="gallery-item"><img src="Thang Long Water Puppet Show.jfif" alt="Water Puppets"><div class="overlay"><h3>Thang Long Water Puppet Show</h3><span>57B Dinh Tien Hoang · Shows 3:30, 5, 6:30, 8 PM · 2.5 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Thang+Long+Water+Puppet+Theatre+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A 1,000-year-old Vietnamese art form. Puppets dance on water to live traditional music.</p><span class="lang">中文</span><p>千年越南艺术形式。木偶在水上随传统音乐翩翩起舞。</p><span class="lang">日本語</span><p>1000年の歴史を持つベトナムの芸術。人形が伝統音楽に合わせて水上で踊る。</p></div></div>
+    <div class="gallery-item"><img src="Cyclo Tour of the Old Quarter.jfif" alt="Cyclo Tour"><div class="overlay"><h3>Cyclo Tour of the Old Quarter</h3><span>Depart Hoan Kiem · 1 hour, best at dusk · 100–200k VND</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Hoan+Kiem+Lake+Cyclo+Tours+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A leisurely ride through narrow streets at dusk. Negotiate the price before hopping on.</p><span class="lang">中文</span><p>黄昏时分悠闲穿行于狭窄街道。上车前先谈好价格。</p><span class="lang">日本語</span><p>夕暮れ時に狭い路地をのんびり走る。乗る前に価格交渉を。</p></div></div>
+    <div class="gallery-item"><img src="Bat Trang Ceramic Village.jfif" alt="Bat Trang"><div class="overlay"><h3>Bat Trang Ceramic Village</h3><span>Gia Lam · Try the pottery wheel · 15 km, ~40 min</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Bat+Trang+Ceramic+Village+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A 700-year-old pottery village. Try the wheel yourself and bring home handmade ceramics.</p><span class="lang">中文</span><p>拥有700年历史的陶瓷村。亲手体验陶艺轮，带走手工陶瓷。</p><span class="lang">日本語</span><p>700年の歴史を持つ陶芸村。ろくろ体験をして手作り陶器をお土産に。</p></div></div>
+    <div class="gallery-item"><img src="Tam Coc, Ninh Binh.jfif" alt="Tam Coc"><div class="overlay"><h3>Tam Coc, Ninh Binh</h3><span>95 km south · Boat through limestone karsts · Full day trip</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Tam+Coc+Ninh+Binh+Vietnam" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Drift by boat through limestone karsts and emerald waters. The 'Ha Long Bay on land.' Full day trip.</p><span class="lang">中文</span><p>乘船穿越石灰岩溶洞和翡翠般的水域。被称为'陆地下龙湾'。需一整天。</p><span class="lang">日本語</span><p>石灰岩の奇岩とエメラルドの水の中をボートで進む。'陸のハロン湾'。終日旅行。</p></div></div>
   </div>
 </div>
 
 <div class="gallery">
-  <div class="gallery-label">Malls & Shopping</div>
+  <div class="gallery-label">Malls &amp; Shopping</div>
   <div class="gallery-track">
-    <div class="gallery-item"><img src="Lotte Mall West Lake Hanoi.jfif" alt="Lotte Mall"><div class="overlay"><h3>Lotte Mall West Lake Hanoi</h3><span>683 Lac Long Quan · Luxury + aquarium + cinema · 5.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mall+West+Lake+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's newest and largest mall. Luxury brands, aquarium, cinema, and rooftop views.</p><span class="lang">中文</span><p>河内最新最大的购物中心。奢侈品牌、水族馆、电影院和屋顶景观。</p><span class="lang">日本語</span><p>ハノイ最新最大のモール。高級ブランド、水族館、映画館、屋上の景色。</p></div></div>
-    <div class="gallery-item"><img src="Trang Tien Plaza.jfif" alt="Trang Tien Plaza"><div class="overlay"><h3>Trang Tien Plaza</h3><span>24 Hai Ba Trung · Heritage colonial building · 3.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=Trang+Tien+Plaza+24+Hai+Ba+Trung+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Heritage colonial-era building near Hoan Kiem Lake. Luxury shopping in a historic setting.</p><span class="lang">中文</span><p>靠近还剑湖的殖民时期遗产建筑。在历史环境中享受奢华购物。</p><span class="lang">日本語</span><p>ホアンキエム湖近くの植民地時代の遺産建築。歴史的な環境で高級ショッピング。</p></div></div>
-    <div class="gallery-item"><img src="Dong Xuan Market.jpg" alt="Dong Xuan Market"><div class="overlay"><h3>Dong Xuan Market</h3><span>Oldest & largest indoor market · Souvenirs, fabric, food · 3.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=Dong+Xuan+Market+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's oldest and largest indoor market. Everything from souvenirs to silk to street food.</p><span class="lang">中文</span><p>河内最古老最大的室内市场。从纪念品到丝绸到街头小吃，应有尽有。</p><span class="lang">日本語</span><p>ハノイ最古・最大の屋内市場。土産物から絹、屋台料理まで何でも揃う。</p></div></div>
-    <div class="gallery-item"><img src="Hanoi Night Market.jfif" alt="Night Market"><div class="overlay"><h3>Hanoi Night Market</h3><span>Hang Dao to Dong Xuan · Fri–Sun · Peak 8–10 PM · 2.8 km</span><a href="https://www.google.com/maps/search/?api=1&query=Hanoi+Night+Market+Hang+Dao" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Friday to Sunday evenings. Street food, souvenirs, and live music under lantern lights.</p><span class="lang">中文</span><p>周五至周日晚上。灯笼下的街头美食、纪念品和现场音乐。</p><span class="lang">日本語</span><p>金〜日曜の夜。提灯の下で屋台料理、お土産、ライブ音楽を楽しむ。</p></div></div>
+    <div class="gallery-item"><img src="Lotte Mall West Lake Hanoi.jfif" alt="Lotte Mall"><div class="overlay"><h3>Lotte Mall West Lake Hanoi</h3><span>683 Lac Long Quan · Luxury + aquarium + cinema · 5.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lotte+Mall+West+Lake+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's newest and largest mall. Luxury brands, aquarium, cinema, and rooftop views.</p><span class="lang">中文</span><p>河内最新最大的购物中心。奢侈品牌、水族馆、电影院和屋顶景观。</p><span class="lang">日本語</span><p>ハノイ最新最大のモール。高級ブランド、水族館、映画館、屋上の景色。</p></div></div>
+    <div class="gallery-item"><img src="Trang Tien Plaza.jfif" alt="Trang Tien Plaza"><div class="overlay"><h3>Trang Tien Plaza</h3><span>24 Hai Ba Trung · Heritage colonial building · 3.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Trang+Tien+Plaza+24+Hai+Ba+Trung+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Heritage colonial-era building near Hoan Kiem Lake. Luxury shopping in a historic setting.</p><span class="lang">中文</span><p>靠近还剑湖的殖民时期遗产建筑。在历史环境中享受奢华购物。</p><span class="lang">日本語</span><p>ホアンキエム湖近くの植民地時代の遺産建築。歴史的な環境で高級ショッピング。</p></div></div>
+    <div class="gallery-item"><img src="Dong Xuan Market.jpg" alt="Dong Xuan Market"><div class="overlay"><h3>Dong Xuan Market</h3><span>Oldest &amp; largest indoor market · Souvenirs, fabric, food · 3.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Dong+Xuan+Market+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's oldest and largest indoor market. Everything from souvenirs to silk to street food.</p><span class="lang">中文</span><p>河内最古老最大的室内市场。从纪念品到丝绸到街头小吃，应有尽有。</p><span class="lang">日本語</span><p>ハノイ最古・最大の屋内市場。土産物から絹、屋台料理まで何でも揃う。</p></div></div>
+    <div class="gallery-item"><img src="Hanoi Night Market.jfif" alt="Night Market"><div class="overlay"><h3>Hanoi Night Market</h3><span>Hang Dao to Dong Xuan · Fri–Sun · Peak 8–10 PM · 2.8 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Hanoi+Night+Market+Hang+Dao" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Friday to Sunday evenings. Street food, souvenirs, and live music under lantern lights.</p><span class="lang">中文</span><p>周五至周日晚上。灯笼下的街头美食、纪念品和现场音乐。</p><span class="lang">日本語</span><p>金〜日曜の夜。提灯の下で屋台料理、お土産、ライブ音楽を楽しむ。</p></div></div>
   </div>
 </div>
 
@@ -541,41 +879,39 @@ body {
 <div class="gallery">
   <div class="gallery-label">Street Food — Hanoi's Best Bites</div>
   <div class="gallery-track">
-    <div class="gallery-item"><img src="Phở.jpg" alt="Pho"><div class="overlay"><h3>Phở</h3><span>Pho Thin Lo Duc (13 Lo Duc) — stir-fried beef · Pho Gia Truyen (49 Bat Dan) — classic</span><a href="https://www.google.com/maps/search/?api=1&query=Pho+Thin+Lo+Duc+13+Lo+Duc+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Vietnam's national dish. Clear broth, rice noodles, herbs, and beef or chicken. Best before 9 AM.</p><span class="lang">中文</span><p>越南国菜。清汤、米粉、香草，配牛肉或鸡肉。早上9点前最佳。</p><span class="lang">日本語</span><p>ベトナムの国民食。澄んだスープ、米麺、ハーブ、牛肉か鶏肉。午前9時前が最高。</p></div></div>
-    <div class="gallery-item"><img src="Bún Chả Hương Liên.jfif" alt="Bun Cha"><div class="overlay"><h3>Bún Chả Hương Liên</h3><span>24 Le Van Huu · Obama & Bourdain ate here (2016) · 3.5 km</span><a href="https://www.google.com/maps/search/?api=1&query=Bun+Cha+Huong+Lien+24+Le+Van+Huu+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Grilled pork patties with rice noodles in dipping broth. Obama and Bourdain's famous 2016 stop.</p><span class="lang">中文</span><p>烤猪肉配米粉蘸汤。奥巴马和波登2016年著名的一站。</p><span class="lang">日本語</span><p>つけダレ付き焼き豚肉と米麺。オバマとボーディンが2016年に訪れた名店。</p></div></div>
-    <div class="gallery-item"><img src="Bánh Mì 25.jfif" alt="Banh Mi"><div class="overlay"><h3>Bánh Mì 25</h3><span>25 Hang Ca · Most Instagram'd banh mi · Queue worth it · 3.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=Banh+Mi+25+Hang+Ca+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's most famous baguette sandwich. Grilled pork, pâté, pickled veggies, fresh herbs.</p><span class="lang">中文</span><p>河内最著名的法棍三明治。烤猪肉、肉酱、腌菜、新鲜香草。</p><span class="lang">日本語</span><p>ハノイで最も有名なバゲットサンド。焼き豚、パテ、漬物、フレッシュハーブ。</p></div></div>
-    <div class="gallery-item"><img src="Vua Chả Cá.jfif" alt="Cha Ca"><div class="overlay"><h3>Vua Chả Cá</h3><span>269 Giảng Võ · Turmeric-dill fish · Air-conditioned · 1.5 km</span><a href="https://www.google.com/maps/search/?api=1&query=Vua+Cha+Ca+269+Giang+Vo+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's iconic turmeric-and-dill fish. Sizzling at your table with noodles and peanuts.</p><span class="lang">中文</span><p>河内标志性的姜黄莳萝鱼。在你的桌上滋滋作响，配米粉和花生。</p><span class="lang">日本語</span><p>ハノイ名物のターメリック＆ディル魚。テーブルでジュージュー、麺とピーナッツと共に。</p></div></div>
+    <div class="gallery-item"><img src="Phở.jpg" alt="Pho"><div class="overlay"><h3>Phở</h3><span>Pho Thin Lo Duc (13 Lo Duc) — stir-fried beef · Pho Gia Truyen (49 Bat Dan) — classic</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Pho+Thin+Lo+Duc+13+Lo+Duc+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Vietnam's national dish. Clear broth, rice noodles, herbs, and beef or chicken. Best before 9 AM.</p><span class="lang">中文</span><p>越南国菜。清汤、米粉、香草，配牛肉或鸡肉。早上9点前最佳。</p><span class="lang">日本語</span><p>ベトナムの国民食。澄んだスープ、米麺、ハーブ、牛肉か鶏肉。午前9時前が最高。</p></div></div>
+    <div class="gallery-item"><img src="Bún Chả Hương Liên.jfif" alt="Bun Cha"><div class="overlay"><h3>Bún Chả Hương Liên</h3><span>24 Le Van Huu · Obama &amp; Bourdain ate here (2016) · 3.5 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Bun+Cha+Huong+Lien+24+Le+Van+Huu+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Grilled pork patties with rice noodles in dipping broth. Obama and Bourdain's famous 2016 stop.</p><span class="lang">中文</span><p>烤猪肉配米粉蘸汤。奥巴马和波登2016年著名的一站。</p><span class="lang">日本語</span><p>つけダレ付き焼き豚肉と米麺。オバマとボーディンが2016年に訪れた名店。</p></div></div>
+    <div class="gallery-item"><img src="Bánh Mì 25.jfif" alt="Banh Mi"><div class="overlay"><h3>Bánh Mì 25</h3><span>25 Hang Ca · Most Instagram'd banh mi · Queue worth it · 3.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Banh+Mi+25+Hang+Ca+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's most famous baguette sandwich. Grilled pork, pâté, pickled veggies, fresh herbs.</p><span class="lang">中文</span><p>河内最著名的法棍三明治。烤猪肉、肉酱、腌菜、新鲜香草。</p><span class="lang">日本語</span><p>ハノイで最も有名なバゲットサンド。焼き豚、パテ、漬物、フレッシュハーブ。</p></div></div>
+    <div class="gallery-item"><img src="Vua Chả Cá.jfif" alt="Cha Ca"><div class="overlay"><h3>Vua Chả Cá</h3><span>269 Giảng Võ · Turmeric-dill fish · Air-conditioned · 1.5 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Vua+Cha+Ca+269+Giang+Vo+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Hanoi's iconic turmeric-and-dill fish. Sizzling at your table with noodles and peanuts.</p><span class="lang">中文</span><p>河内标志性的姜黄莳萝鱼。在你的桌上滋滋作响，配米粉和花生。</p><span class="lang">日本語</span><p>ハノイ名物のターメリック＆ディル魚。テーブルでジュージュー、麺とピーナッツと共に。</p></div></div>
   </div>
 </div>
 
 <!-- ═══ COFFEE ═══ -->
-<div class="text-section reveal" id="coffee">
-  <span class="label">Cà Phê</span>
-  <h2>Coffee Culture</h2>
+<div class="big-text reveal" id="coffee">
+  <h2>COFFEE</h2>
   <p>Hanoi invented egg coffee in 1946. Sit low on tiny stools, sip slow, watch the world pass on motorbikes.</p>
 </div>
 
 <div class="gallery">
   <div class="gallery-label">Cafés</div>
   <div class="gallery-track">
-    <div class="gallery-item"><img src="Cafe Giảng (Egg Coffee Origin).jfif" alt="Cafe Giang"><div class="overlay"><h3>Cafe Giảng (Egg Coffee Origin)</h3><span>39 Nguyen Huu Huan · Invented cà phê trứng 1946 · 2.8 km</span><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Giang+39+Nguyen+Huu+Huan+Hanoi+egg+coffee" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Where egg coffee was invented in 1946. Creamy, sweet, warm — like liquid tiramisu.</p><span class="lang">中文</span><p>蛋咖啡的发源地（1946年）。奶油般、甜蜜、温暖——如同液体提拉米苏。</p><span class="lang">日本語</span><p>1946年にエッグコーヒーが生まれた場所。クリーミーで甘く温かい — 液体ティラミスのよう。</p></div></div>
-    <div class="gallery-item"><img src="Loading T Cafe.jfif" alt="Loading T"><div class="overlay"><h3>Loading T Cafe</h3><span>8 Chan Cam · French villa aesthetic · Coconut coffee · 2.0 km</span><a href="https://www.google.com/maps/search/?api=1&query=Loading+T+Cafe+8+Chan+Cam+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>French villa aesthetic with lush courtyard. Their coconut coffee is Instagram-famous.</p><span class="lang">中文</span><p>法式别墅风格，庭院郁郁葱葱。他们的椰子咖啡是Ins网红。</p><span class="lang">日本語</span><p>緑豊かな中庭のフレンチヴィラ風。ココナッツコーヒーはインスタで有名。</p></div></div>
-    <div class="gallery-item"><img src="Tranquil Books & Coffee.jfif" alt="Tranquil Books"><div class="overlay"><h3>Tranquil Books & Coffee</h3><span>5 Nguyễn Quang Bích · Quiet, laptop-friendly · 1.8 km</span><a href="https://www.google.com/maps/search/?api=1&query=Tranquil+Books+Coffee+5+Nguyen+Quang+Bich+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A quiet bookshop-café tucked in an alley. Laptop-friendly, perfect for jet-lag catch-up work.</p><span class="lang">中文</span><p>藏在巷子里安静的书店咖啡馆。适合办公，非常适合倒时差时工作。</p><span class="lang">日本語</span><p>路地裏にひっそりとある静かなブックカフェ。PC作業OK、時差ボケ仕事に最適。</p></div></div>
-    <div class="gallery-item"><img src="Railway Cafe.jfif" alt="Railway Cafe"><div class="overlay"><h3>Railway Cafe</h3><span>Phung Hung St · Train passes ~3 PM & ~7:30 PM · 2.0 km</span><a href="https://maps.app.goo.gl/q83QPacMjc1qsA3n6" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Sit inches from active train tracks. The train passes twice daily — pure adrenaline.</p><span class="lang">中文</span><p>坐在离铁轨几寸远的地方。火车每天经过两次——纯粹的肾上腺素。</p><span class="lang">日本語</span><p>線路から数センチの距離に座る。列車は1日2回通過 — アドレナリン全開。</p></div></div>
+    <div class="gallery-item"><img src="Cafe Giảng (Egg Coffee Origin).jfif" alt="Cafe Giang"><div class="overlay"><h3>Cafe Giảng (Egg Coffee Origin)</h3><span>39 Nguyen Huu Huan · Invented cà phê trứng 1946 · 2.8 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+Giang+39+Nguyen+Huu+Huan+Hanoi+egg+coffee" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Where egg coffee was invented in 1946. Creamy, sweet, warm — like liquid tiramisu.</p><span class="lang">中文</span><p>蛋咖啡的发源地（1946年）。奶油般、甜蜜、温暖——如同液体提拉米苏。</p><span class="lang">日本語</span><p>1946年にエッグコーヒーが生まれた場所。クリーミーで甘く温かい — 液体ティラミスのよう。</p></div></div>
+    <div class="gallery-item"><img src="Loading T Cafe.jfif" alt="Loading T"><div class="overlay"><h3>Loading T Cafe</h3><span>8 Chan Cam · French villa aesthetic · Coconut coffee · 2.0 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Loading+T+Cafe+8+Chan+Cam+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>French villa aesthetic with lush courtyard. Their coconut coffee is Instagram-famous.</p><span class="lang">中文</span><p>法式别墅风格，庭院郁郁葱葱。他们的椰子咖啡是Ins网红。</p><span class="lang">日本語</span><p>緑豊かな中庭のフレンチヴィラ風。ココナッツコーヒーはインスタで有名。</p></div></div>
+    <div class="gallery-item"><img src="Tranquil Books &amp; Coffee.jfif" alt="Tranquil Books"><div class="overlay"><h3>Tranquil Books &amp; Coffee</h3><span>5 Nguyễn Quang Bích · Quiet, laptop-friendly · 1.8 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Tranquil+Books+Coffee+5+Nguyen+Quang+Bich+Hanoi" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>A quiet bookshop-café tucked in an alley. Laptop-friendly, perfect for jet-lag catch-up work.</p><span class="lang">中文</span><p>藏在巷子里安静的书店咖啡馆。适合办公，非常适合倒时差时工作。</p><span class="lang">日本語</span><p>路地裏にひっそりとある静かなブックカフェ。PC作業OK、時差ボケ仕事に最適。</p></div></div>
+    <div class="gallery-item"><img src="Railway Cafe.jfif" alt="Railway Cafe"><div class="overlay"><h3>Railway Cafe</h3><span>Phung Hung St · Train passes ~3 PM &amp; ~7:30 PM · 2.0 km</span><a href="https://maps.app.goo.gl/q83QPacMjc1qsA3n6" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Sit inches from active train tracks. The train passes twice daily — pure adrenaline.</p><span class="lang">中文</span><p>坐在离铁轨几寸远的地方。火车每天经过两次——纯粹的肾上腺素。</p><span class="lang">日本語</span><p>線路から数センチの距離に座る。列車は1日2回通過 — アドレナリン全開。</p></div></div>
   </div>
 </div>
 
 <!-- ═══ ROOFTOPS ═══ -->
-<div class="text-section reveal" id="rooftops">
-  <span class="label">Rooftops</span>
-  <h2>City Views</h2>
+<div class="big-text reveal" id="rooftops">
+  <h2>CITY VIEWS</h2>
   <p>Golden hour above the chaos. Cocktails with a side of skyline.</p>
 </div>
 
 <div class="gallery">
   <div class="gallery-label">Sunset Spots</div>
   <div class="gallery-track">
-    <div class="gallery-item"><img src="Lotte Observation Deck.jpg" alt="Lotte Observation"><div class="overlay"><h3>Lotte Observation Deck</h3><span>65F Lotte Center, 54 Lieu Giai · Highest view in Hanoi · 2.5 km</span><a href="https://www.google.com/maps/search/?api=1&query=Lotte+Center+54+Lieu+Giai+Hanoi+observation" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>65th floor of Lotte Center. The highest view in Hanoi. Time your visit for golden hour.</p><span class="lang">中文</span><p>乐天中心65层。河内最高的观景台。选择黄金时段前往。</p><span class="lang">日本語</span><p>ロッテセンター65階。ハノイで最も高い展望台。ゴールデンアワーに訪れよう。</p></div></div>
+    <div class="gallery-item"><img src="Lotte Observation Deck.jpg" alt="Lotte Observation"><div class="overlay"><h3>Lotte Observation Deck</h3><span>65F Lotte Center, 54 Lieu Giai · Highest view in Hanoi · 2.5 km</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lotte+Center+54+Lieu+Giai+Hanoi+observation" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>65th floor of Lotte Center. The highest view in Hanoi. Time your visit for golden hour.</p><span class="lang">中文</span><p>乐天中心65层。河内最高的观景台。选择黄金时段前往。</p><span class="lang">日本語</span><p>ロッテセンター65階。ハノイで最も高い展望台。ゴールデンアワーに訪れよう。</p></div></div>
     <div class="gallery-item"><img src="Hanoi.png" alt="Skyline Hanoi"><div class="overlay"><h3>Skyline Hanoi</h3><span>Pan Pacific rooftop, 1 Thanh Nien · West Lake sunset + cocktails · 4.0 km</span><a href="https://maps.app.goo.gl/SHvzj13fRdWhukqQ6" target="_blank">Map ↗</a></div><div class="desc-tooltip"><span class="lang">EN</span><p>Pan Pacific rooftop bar overlooking West Lake. Cocktails and sunset — perfect for client dinners.</p><span class="lang">中文</span><p>泛太平洋酒店屋顶酒吧，俯瞰西湖。鸡尾酒和日落——非常适合客户晚宴。</p><span class="lang">日本語</span><p>ウェストレイクを見下ろすパンパシフィックの屋上バー。カクテルと夕日 — 接待に最適。</p></div></div>
   </div>
 </div>
@@ -587,7 +923,7 @@ body {
     <a href="#experiences">Explore</a>
     <a href="#food">Food</a>
     <a href="#coffee">Coffee</a>
-    <a href="#rooftops">Rooftops</a>
+    <a href="#rooftops">City Views</a>
   </div>
   <div class="footer-copy">© 2025 Amazon Ads · Vietnam · Warmest Welcome</div>
 </footer>
@@ -601,5 +937,6 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
-</body>
-</html>
+
+
+</body></html>
