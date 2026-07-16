@@ -768,6 +768,78 @@ body {
   .nav-links { gap: 12px; }
   .nav-links a { font-size: 11px; }
 }
+
+
+
+/* Schedule Section */
+.schedule-section {
+  padding: 0 24px 80px;
+}
+.schedule-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.day-card {
+  background: var(--dark-mid);
+  border-radius: 4px;
+  padding: 24px 20px;
+}
+.day-header {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.day-header span { font-weight: 400; color: var(--white-50); font-size: 11px; display: block; margin-top: 2px; }
+.sched-block {
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.sched-block:first-of-type { border-top: none; padding-top: 0; }
+.sched-block.break { opacity: 0.45; }
+.block-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+.block-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.4;
+}
+.block-title strong { color: var(--cream); }
+.block-time {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--cream);
+  white-space: nowrap;
+}
+.block-attendees {
+  font-size: 9px;
+  color: var(--white-50);
+  line-height: 1.5;
+  display: block;
+}
+.block-location {
+  font-size: 9px;
+  color: var(--olive);
+  display: block;
+  margin-top: 2px;
+}
+@media (max-width: 600px) {
+  .schedule-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -781,6 +853,7 @@ body {
     <a href="#food">Eat</a>
     <a href="#coffee">Coffee</a>
     <a href="#rooftops">City Views</a>
+    <a href="#schedule">Schedule</a>
   </div>
 </nav>
 
@@ -927,6 +1000,142 @@ body {
 </div>
 
 <!-- FOOTER -->
+
+
+<!-- ═══ SCHEDULE ═══ -->
+<div class="big-text reveal" id="schedule">
+  <h2>SCHEDULE</h2>
+  <p>Three days of workshops, culture, and connection.</p>
+</div>
+
+<div class="schedule-section reveal">
+  <div class="schedule-row">
+
+    <div class="day-card">
+      <div class="day-header">22 Jul<span>Tuesday</span></div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Download (45 mins)</span><span class="block-time">9:00 AM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Working Group — <strong>SPB</strong></span><span class="block-time">10:00 AM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Working Group — <strong>AI</strong></span><span class="block-time">11:00 AM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Lunch Break</span><span class="block-time">12:00 PM</span></div>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Working Group — <strong>Deal</strong></span><span class="block-time">1:30 PM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Working Group — <strong>Partner</strong></span><span class="block-time">2:30 PM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Break slot</span><span class="block-time">3:30 PM</span></div>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Working Group — <strong>DVA &amp; Video</strong></span><span class="block-time">4:30 PM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">OP1 Working Group — H2/2027 Action Plan</span><span class="block-time">5:30 PM</span></div>
+        <span class="block-attendees">All offsite attendees</span>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Team Activities — Dinner</span><span class="block-time">7:00 PM</span></div>
+        <span class="block-attendees">APAC Managers</span>
+      </div>
+      <span class="block-location">HAN22 07.100 Hanoi Opera House Casual AV/VC (24)</span>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">23 Jul<span>Wednesday — Chuong Village</span></div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Day 1 Recap</span><span class="block-time">9:00 AM</span></div>
+        <span class="block-attendees">Open to all APAC members virtually + All offsite attendees</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Q3 GGS APAC All Hands (9:30–11:15 AM)</span><span class="block-time">9:30 AM</span></div>
+        <span class="block-attendees">Open to all APAC members virtually + All offsite attendees</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Fireside Chat — Business &amp; Culture</span><span class="block-time">11:20 AM</span></div>
+        <span class="block-attendees">Open to all APAC members virtually + All offsite attendees</span>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Transfer &amp; Vietnamese Set-Menu Lunch</span><span class="block-time">12:30 PM</span></div>
+        <span class="block-attendees">TBC</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Transfer to Chuong Village</span><span class="block-time">2:30 PM</span></div>
+        <span class="block-attendees">TBC</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Walking Tour of the Village</span><span class="block-time">3:00 PM</span></div>
+        <span class="block-attendees">Chuong Village · TBC</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Hat-Making Workshop with Artisans</span><span class="block-time">4:00 PM</span></div>
+        <span class="block-attendees">Chuong Village · TBC</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Return to Hanoi</span><span class="block-time">5:30 PM</span></div>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Dinner at a Local Restaurant</span><span class="block-time">7:00 PM</span></div>
+        <span class="block-attendees">TBC</span>
+      </div>
+      <span class="block-location">HAN22 07.100 + 07.101 Hanoi Railway Station Casual AV/VC (24)</span>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">24 Jul<span>Thursday — Talent Reviews</span></div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Agenda &amp; Overview, Unconscious Bias (10 min) + APAC Overall Curve (20 min)</span><span class="block-time">9:00 AM</span></div>
+        <span class="block-attendees">HR + All APAC GGS Managers</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">L6 IC OV Curve (TT, RM, Very High Potential, LE &amp; Big Swing) — 16 EEs</span><span class="block-time">9:30 AM</span></div>
+        <span class="block-attendees">HR + All APAC GGS Managers</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">L5 OV Curve, Promotion Velocity — 57 EEs</span><span class="block-time">11:00 AM</span></div>
+        <span class="block-attendees">HR + All APAC GGS Managers</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">L4 OV Curve (Very High Potential, Role Model) — 20 EEs</span><span class="block-time">12:00 PM</span></div>
+        <span class="block-attendees">HR + All APAC GGS Managers</span>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Lunch Break (30 min)</span><span class="block-time">12:30 PM</span></div>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">Ways of Working Workshop</span><span class="block-time">1:00 PM</span></div>
+        <span class="block-attendees">HR + All APAC GGS Managers</span>
+      </div>
+      <div class="sched-block">
+        <div class="block-top"><span class="block-title">CN Talent Review — L6 M1 Calibration (TT, RM, Potential=5, LE) — 9</span><span class="block-time">4:00 PM</span></div>
+        <span class="block-attendees">Yiping, Ivy, Naomi, Guan, Jiayu, Chunmei, Scarlett</span>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Break slot</span><span class="block-time">6:00 PM</span></div>
+      </div>
+      <div class="sched-block break">
+        <div class="block-top"><span class="block-title">Team Activities — Dinner</span><span class="block-time">7:00 PM</span></div>
+        <span class="block-attendees">APAC Managers</span>
+      </div>
+      <span class="block-location">HAN22 07.100 + 07.101 Hanoi Railway Station Casual AV/VC (24)</span>
+    </div>
+
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer-links">
     <a href="#survival">Survival</a>
@@ -934,6 +1143,7 @@ body {
     <a href="#food">Food</a>
     <a href="#coffee">Coffee</a>
     <a href="#rooftops">City Views</a>
+    <a href="#schedule">Schedule</a>
   </div>
   <div class="footer-copy">© 2025 Amazon Ads · Vietnam · Warmest Welcome</div>
 </footer>
