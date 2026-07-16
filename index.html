@@ -339,7 +339,12 @@
   color-scheme: light;
 }
 body { background: var(--color-bg); color: var(--color-text); }
-a { color: var(--color-link, var(--color-primary)); }</style>
+a { color: var(--color-link, var(--color-primary)); }
+@media (max-width: 480px) {
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 11px; }
+}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#24201A">
@@ -840,6 +845,11 @@ body {
   }
 }
 
+
+@media (max-width: 480px) {
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 11px; }
+}
 </style>
 </head>
 <body>
@@ -848,7 +858,6 @@ body {
 <nav class="nav">
   <a href="#" class="nav-brand" style="text-decoration:none; color:inherit;">Hanoi</a>
   <div class="nav-links">
-    <a href="#survival">Survival</a>
     <a href="#experiences">Explore</a>
     <a href="#food">Eat</a>
     <a href="#coffee">Coffee</a>
@@ -1138,7 +1147,6 @@ body {
 
 <footer class="footer">
   <div class="footer-links">
-    <a href="#survival">Survival</a>
     <a href="#experiences">Explore</a>
     <a href="#food">Food</a>
     <a href="#coffee">Coffee</a>
