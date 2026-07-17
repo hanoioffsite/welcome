@@ -845,6 +845,107 @@ body {
   .nav-links { gap: 12px; }
   .nav-links a { font-size: 11px; }
 }
+
+/* Mobile Description Modal */
+.desc-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+.desc-modal.active {
+  display: flex;
+}
+.desc-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+.desc-modal-content {
+  position: relative;
+  background: #2E2A23;
+  border-radius: 8px;
+  padding: 28px 24px;
+  max-width: 340px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+.desc-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+.desc-modal-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.desc-modal-body p:last-child { margin-bottom: 0; }
+.desc-modal-body .lang {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  display: block;
+}
+
+/* Hide hover tooltip on mobile, show on desktop only */
+@media (max-width: 768px) {
+  .gallery-item .desc-tooltip {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .desc-modal { display: none !important; }
+}
+
+
+@media (max-width: 768px) {
+  .gallery-item .img-link {
+    pointer-events: none;
+  }
+}
+
+.modal-place-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.modal-place-detail {
+  font-size: 11px;
+  color: var(--white-50);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.modal-map-btn {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--cream);
+  color: var(--espresso);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 24px;
+  text-decoration: none;
+}
+
 </style>
 </head>
 <body>
@@ -1009,7 +1110,7 @@ body {
 <!-- ═══ SCHEDULE ═══ -->
 <div class="big-text reveal" id="schedule">
   <h2>SCHEDULE</h2>
-  <p>Three days of workshops, culture, and connection. Please check with Event Owners (@duzhuo/@yipingc) for attendance criteria.</p>
+  <p>Three days of workshops, culture, and connection.</p>
 </div>
 
 <div class="schedule-section reveal">
@@ -1110,7 +1211,7 @@ body {
       </div>
       <div class="sched-block">
         <div class="block-top"><span class="block-title">Talent Review</span><span class="block-time">4:00 PM</span></div>
-        <span class="block-attendees">HR + APAC GGS L7+ managers</span>
+        <span class="block-attendees">HR + CN GGS M1/M2 Managers</span>
       </div>
 
       <span class="block-location">HAN22 07.100 + 07.101 Hanoi Railway Station Casual AV/VC (24)</span>
@@ -1140,5 +1241,70 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
 
+
+
+<!-- Description Modal (Mobile) -->
+<div class="desc-modal" id="descModal">
+  <div class="desc-modal-backdrop"></div>
+  <div class="desc-modal-content">
+    <button class="desc-modal-close">×</button>
+    <div class="desc-modal-body" id="descModalBody"></div>
+  </div>
+</div>
+
+<script>
+// Mobile: click gallery item → show description modal with Map button
+(function() {
+  const modal = document.getElementById('descModal');
+  const body = document.getElementById('descModalBody');
+  const backdrop = modal.querySelector('.desc-modal-backdrop');
+  const closeBtn = modal.querySelector('.desc-modal-close');
+
+  function isMobile() { return window.innerWidth <= 768; }
+
+  function openModal(item) {
+    var tooltip = item.querySelector('.desc-tooltip');
+    var overlay = item.querySelector('.overlay');
+    if (!tooltip || !overlay) return;
+
+    // Get place name
+    var name = overlay.querySelector('h3') ? overlay.querySelector('h3').textContent : '';
+    var detail = overlay.querySelector('span') ? overlay.querySelector('span').textContent : '';
+    var mapLink = overlay.querySelector('a') ? overlay.querySelector('a').href : '';
+
+    // Build modal content
+    var html = '<h3 class="modal-place-name">' + name + '</h3>';
+    html += '<p class="modal-place-detail">' + detail + '</p>';
+    html += tooltip.innerHTML;
+    if (mapLink) {
+      html += '<a href="' + mapLink + '" target="_blank" class="modal-map-btn">Open in Google Maps</a>';
+    }
+
+    body.innerHTML = html;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Attach click to all gallery items
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      if (!isMobile()) return;
+      // Don't block overlay map link on mobile either (it's still there but less visible)
+      if (e.target.closest('.modal-map-btn')) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openModal(item);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+})();
+</script>
 
 </body></html>
